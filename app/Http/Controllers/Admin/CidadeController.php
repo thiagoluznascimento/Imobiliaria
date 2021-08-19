@@ -35,10 +35,15 @@ class CidadeController extends Controller
         // echo $nome;
 
         //Criar um objeto do modelo (classe) Cidade
-        $cidade = new Cidade(); // essa classe que comunica com o BD
-        $cidade->nome = $request->nome;
+        // $cidade = new Cidade(); // essa classe que comunica com o BD
+        // $cidade->nome = $request->nome;
 
-        $cidade->save(); //salva no BD
+        // $cidade->save(); //salva no BD
+
+        /*Outro jeito de fazer, por atribuição em massa*/
+        Cidade::create($request->all()); //nome do modelo(Cidade) e o metodo(create) ou seja slv tudo no BD
+        
+
 
         return redirect()->route('admin.cidades.listar');
     }
