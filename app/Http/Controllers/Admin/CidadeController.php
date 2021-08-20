@@ -42,8 +42,9 @@ class CidadeController extends Controller
 
         /*Outro jeito de fazer, por atribuição em massa*/
         Cidade::create($request->all()); //nome do modelo(Cidade) e o metodo(create) ou seja slv tudo no BD
-        
 
+        /*usamos para guardar dados de forma flash na sessão*/
+        $request->session()->flash('sucesso', "cidade $request->nome incluída com sucesso!");
 
         return redirect()->route('admin.cidades.listar');
     }

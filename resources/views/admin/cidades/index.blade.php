@@ -30,6 +30,7 @@
                 <i class="large material-icons">add</i>
             </a>
         </div>
+        
     </section>
 
 @endsection
