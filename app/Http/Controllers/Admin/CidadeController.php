@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\CidadeRequest;
 
 use App\Models\Cidade;  //está usando o BD
 
@@ -27,7 +28,7 @@ class CidadeController extends Controller
     {
         return view('admin.cidades.form');
     }
-    public function adicionar(Request $request) // requisição para o methodo
+    public function adicionar(CidadeRequest $request) // requisição para o methodo
     {
         //pegando o dado enviado pelo form
         // $nome = $request->input('nome'); //nome que está no input lá no formulário (form.blade)
@@ -41,6 +42,7 @@ class CidadeController extends Controller
         // $cidade->save(); //salva no BD
 
         /*Outro jeito de fazer, por atribuição em massa*/
+        //Criar um objeto do modelo (classe) Cidade
         Cidade::create($request->all()); //nome do modelo(Cidade) e o metodo(create) ou seja slv tudo no BD
 
         /*usamos para guardar dados de forma flash na sessão*/
