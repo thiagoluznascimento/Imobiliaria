@@ -50,6 +50,12 @@ class CidadeController extends Controller
 
         return redirect()->route('admin.cidades.listar');
     }
+    public function delete($id, Request $request)
+    {
+        Cidade::destroy($id);
+        $request->session()->flash('sucesso', "cidade Excluida com sucesso!");
+        return redirect()->route('admin.cidades.listar');
+    }
 }
 
 //existem várias formas de passar dados do controller para view, nesse caso eu usei o compact do PHP.
